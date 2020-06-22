@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diamond</title>
+    <title>Diamnd</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/mdb.min.css">
 
 </head>
 <body>
@@ -51,15 +52,33 @@
             <div class="card-body">
               </div><div class="card">
                 <div class="card-header">
-                  <h5><a class="btn btn-info float-right" href="formulario_perfil.html" role="button">Editar</a>Mi informacion </h5>
+                  <h5><a class="btn btn-info float-right" href="perfil.html" role="button">Guardar</a>Mi informacion </h5>
                 </div>
                 <div class="card-body">
-                  <p class="font-weight-bold">Nombre</p><p>Jan Carlo</p>
-                  <p class="font-weight-bold">Apellido Paterno</p><p>Guzmán </p>
-                  <p class="font-weight-bold">Apellido Materno</p><p>Sánchez  </p>
-                  <p class="font-weight-bold">RFC</p><p>GUSJ010503KC9</p>
-                  <p class="font-weight-bold">Número de teléfono</p><p>+52 7223905579</p>
-                  <p class="font-weight-bold">Correo electrónico</p><p>al221910462@gmail.com</p>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="paterno">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="paterno" name="paterno">
+                    </div>
+                    <div class="form-group">
+                        <label for="materno">Apellido Materno</label>
+                        <input type="text" class="form-control" id="materno" name="materno">
+                    </div>
+                    <div class="form-group">
+                        <label for="rfc">RFC</label>
+                        <input type="text" class="form-control" id="rfc" name="rfc">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Numero de telefono</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="correr">Correo Electronico</label>
+                        <input type="email" class="form-control" id="correo" name="correo">
+                    </div>
                 </div>
               </div>
             </div>
