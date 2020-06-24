@@ -42,43 +42,73 @@
             </form>
         </div>
     </nav>
-    <!-- Horizontal Steppers -->
-    <div class="row">
-        <div class="col-md-12">
-    
-        <!-- Stepers Wrapper -->
-        <ul class="stepper stepper-horizontal">
-    
-            <!-- First Step -->
-            <li class="warning">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-dolly-flatbed"></i></span>
-                <span class="label">En preparación </span>
-            </a>
-            </li>
-    
-            <!-- Second Step -->
-            <li class="active">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-truck"></i></span>
-                <span class="label">En camino</span>
-            </a>
-            </li>
-    
-            <!-- Third Step -->
-            <li class="completed">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-check"></i></span>
-                <span class="label">Entregadó</span>
-            </a>
-            </li>
-    
-        </ul>
-        <!-- /.Stepers Wrapper -->
-    
-        </div>
+    <!-- Button trigger modal-->
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Tus compras</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre del producto</th>
+              <th>Precio</th>
+              <th>Remover</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Anillo Oro blanco</td>
+              <td>100$</td>
+              <td><a><i class="fas fa-times"></i></a></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Aretes tipo oro metalico</td>
+              <td>100$</td>
+              <td><a><i class="fas fa-times"></i></a></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Pulsera convinacion 3 oros </td>
+              <td>100$</td>
+              <td><a><i class="fas fa-times"></i></a></td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Reloj Marca Gucci</td>
+              <td>100$</td>
+              <td><a><i class="fas fa-times"></i></a></td>
+            </tr>
+            <tr class="total">
+              <th scope="row">5</th>
+              <td>Total</td>
+              <td>400$</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cerrar</button>
+        <button class="btn btn-primary">Continuar</button>
+      </div>
     </div>
-    <!-- /.Horizontal Steppers -->
+  </div>
+</div>
+<!-- Modal: modalCart -->
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
