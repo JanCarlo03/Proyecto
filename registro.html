@@ -40,55 +40,53 @@
         </div>
     </nav>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- Card -->
-<div class="card">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+<!-- Default form login -->
+<form class="text-center border border-light p-5" action="#!">
 
-    <!-- Card body -->
-    <div class="card-body">
-  
-      <!-- Material form register -->
-      <form>
-        <p class="h4 text-center py-4">Sign up</p>
-  
-        <!-- Material input text -->
-        <div class="md-form">
-          <i class="fa fa-user prefix grey-text"></i>
-          <input type="text" id="materialFormCardNameEx" class="form-control">
-          <label for="materialFormCardNameEx" class="font-weight-light">Your name</label>
-        </div>
-  
-        <!-- Material input email -->
-        <div class="md-form">
-          <i class="fa fa-envelope prefix grey-text"></i>
-          <input type="email" id="materialFormCardEmailEx" class="form-control">
-          <label for="materialFormCardEmailEx" class="font-weight-light">Your email</label>
-        </div>
-  
-        <!-- Material input email -->
-        <div class="md-form">
-          <i class="fa fa-exclamation-triangle prefix grey-text"></i>
-          <input type="email" id="materialFormCardConfirmEx" class="form-control">
-          <label for="materialFormCardConfirmEx" class="font-weight-light">Confirm your email</label>
-        </div>
-  
-        <!-- Material input password -->
-        <div class="md-form">
-          <i class="fa fa-lock prefix grey-text"></i>
-          <input type="password" id="materialFormCardPasswordEx" class="form-control">
-          <label for="materialFormCardPasswordEx" class="font-weight-light">Your password</label>
-        </div>
-  
-        <div class="text-center py-4 mt-3">
-          <button class="btn btn-cyan" type="submit">Register</button>
-        </div>
-      </form>
-      <!-- Material form register -->
-  
-    </div>
-    <!-- Card body -->
-  
+  <p class="h4 mb-4">Sign in</p>
+
+  <!-- Email -->
+  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+  <!-- Password -->
+  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+
+  <div class="d-flex justify-content-around">
+      <div>
+          <!-- Remember me -->
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+              <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+          </div>
+      </div>
+      <div>
+          <!-- Forgot password -->
+          <a href="">Forgot password?</a>
+      </div>
   </div>
-  <!-- Card -->
+
+  <!-- Sign in button -->
+  <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+
+  <!-- Register -->
+  <p>Not a member?
+      <a href="registro_formulario.html">Register</a>
+  </p>
+
+  <!-- Social login -->
+  <p>or sign in with:</p>
+
+  <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+  <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+  <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+  <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+</form>
+        </div>
+    </div>
+<!-- Default form login -->
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/mdb.min.js"></script>  
