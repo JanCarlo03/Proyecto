@@ -42,44 +42,7 @@
             </form>
         </div>
     </nav>
-    <!-- Horizontal Steppers -->
-    <div class="row">
-        <div class="col-md-12">
-    
-        <!-- Stepers Wrapper -->
-        <ul class="stepper stepper-horizontal">
-    
-            <!-- First Step -->
-            <li class="warning">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-dolly-flatbed"></i></span>
-                <span class="label">En preparación </span>
-            </a>
-            </li>
-    
-            <!-- Second Step -->
-            <li class="active">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-truck"></i></span>
-                <span class="label">En camino</span>
-            </a>
-            </li>
-    
-            <!-- Third Step -->
-            <li class="completed">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-check"></i></span>
-                <span class="label">Entregadó</span>
-            </a>
-            </li>
-    
-        </ul>
-        <!-- /.Stepers Wrapper -->
-    
-        </div>
-    </div>
-    <!-- /.Horizontal Steppers -->
-    <!-- Editable table -->
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="row justify-content-center">
         <div class="col-md-8">
     <div class="card">
@@ -87,35 +50,31 @@
         <div class="card-body">
         <div id="table" class="table-editable">
             <span class="table-add float-right mb-3 mr-2"><a href="e" class="text-success"></a>
-                <a class="btn btn-info float-right" href="envio_formu.html" role="button">Añadir</a></span>
+                <a class="btn btn-info float-right" href="envio_.html" role="button">Guardar</a></span>
             <table class="table table-bordered table-responsive-md table-striped text-center">
-            <thead>
-                <tr>
-                <th class="text-center">Numero de la compra</th>
-                <th class="text-center">Dirección</th>
-                <th class="text-center">Fecha </th>
-                <th class="text-center">Cliente</th>
-                <th class="text-center">Numero de producto</th>
-                <th class="text-center">Remove</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td class="pt-3-half" contenteditable="true">221910462</td>
-                <td class="pt-3-half" contenteditable="true">AV.Lerma #306,Barrio San Isidro, San Mateo Atenco </td>
-                <td class="pt-3-half" contenteditable="true">29/06/2020</td>
-                <td class="pt-3-half" contenteditable="true">Jan Carlo Guzman</td>
-                <td class="pt-3-half" contenteditable="true">346545654</td>
-                    <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
-                        aria-hidden="true"></i></a></span>
-                </td>
-                <td>
-                    <span class="table-remove"><button type="button"
-                        class="btn btn-danger btn-rounded btn-sm my-0">Cancelar </button></span>
-                </td>
-                </tr>
-            </tbody>
             </table>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="nombre">Numero de compra</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="paterno">Dirección</label>
+                    <input type="text" class="form-control" id="paterno" name="paterno">
+                </div>
+                <div class="form-group">
+                    <label for="materno">Fecha</label>
+                    <input type="text" class="form-control" id="materno" name="materno">
+                </div>
+                <div class="form-group">
+                    <label for="rfc">Cliente</label>
+                    <input type="text" class="form-control" id="rfc" name="rfc">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Numero de producto</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono">
+                </div>
+            </div>
         </div>
         </div>
     </div>
