@@ -1,4 +1,6 @@
 <?php
+// print_r($_POST);
+// exit;
 if (
     !isset($_POST['idenvio']) || empty($_POST['idenvio'])
     || !isset($_POST['idventa']) || empty($_POST['idventa'])

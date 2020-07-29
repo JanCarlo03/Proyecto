@@ -32,7 +32,7 @@ require_once './conexion.php';
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.html"> <i class="fa fa-user-circle"> </i>  Perfil</a>
                         <a class="dropdown-item" href=""><i class="fa fa-shopping-cart"> </i> Compras </a>
-                        <a class="dropdown-item" href="envio.html"><i class="fa fa-shipping-fast"> </i> Envio </a>
+                        <a class="dropdown-item" href="envio.php"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
                 <li class="nav-item">
@@ -52,29 +52,29 @@ require_once './conexion.php';
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Tus Envios </h3>
         <div class="card-body">
         <div id="table" class="table-editable">
-            <span class="table-add float-right mb-3 mr-2"><a href="e" class="text-success"></a>
-                <a class="btn btn-info float-right" href="envio_guarda.php" role="button">Guardar</a></span>
-            <table class="table table-bordered table-responsive-md table-striped text-center">
-            </table>
             <div class="card-body">
-                <from action="envio_guarda.php" method="post">
-                <div class="form-group">
-                    <label for="nombre">Numero de envio</label>
-                    <input type="text" class="form-control" id="idenvio" name="idenvio" required> 
-                </div>
-                <div class="form-group">
-                    <label for="paterno">Numero de compra</label>
-                    <input type="text" class="form-control" id="idventa" name="idventa" required>
-                </div>
-                <div class="form-group">
-                    <label for="fecha_cita">Fecha del envio</label>
-                    <input type="date" class="form-control form-control-sm" id="fecha" name="fecha" aria-describedby="fechaHelp" min="2020-06-10">
-                    <small id="fechaHelp" class="form-text text-muted">Selecciona la fecha de envio </small>
-                </div>
-                <div class="form-group">
-                    <label for="paterno">Direccion</label>
-                    <input type="text" class="form-control" id="direccion" name="direccion">
-                </div>
+                <form action="envio_guarda.php" method="post">
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-info">Guardar</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Numero de envio</label>
+                        <input type="text" class="form-control" id="idenvio" name="idenvio" required> 
+                    </div>
+                    <div class="form-group">
+                        <label for="paterno">Numero de compra</label>
+                        <input type="text" class="form-control" id="idventa" name="idventa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_cita">Fecha del envio</label>
+                        <input type="date" class="form-control form-control-sm" id="fecha" name="fecha" aria-describedby="fechaHelp" min="2020-06-10">
+                        <small id="fechaHelp" class="form-text text-muted">Selecciona la fecha de envio </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="paterno">Direccion</label>
+                        <input type="text" class="form-control" id="direccion" name="direccion">
+                    </div>
+                </form>
             </div>
         </div>
         </div>
