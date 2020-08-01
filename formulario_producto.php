@@ -30,7 +30,7 @@ require_once './conexion.php';
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.html"> <i class="fa fa-user-circle"> </i>  Perfil</a>
                         <a class="dropdown-item" href="compras.html"><i class="fa fa-shopping-cart"> </i> Compras </a>
-                        <a class="dropdown-item" href="envio.html"><i class="fa fa-shipping-fast"> </i> Envio </a>
+                        <a class="dropdown-item" href="envio.php"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
                 <li class="nav-item">
@@ -50,50 +50,48 @@ require_once './conexion.php';
                 <i class="fa fa-gem"></i> Tu producto
             </div>
             <div class="card-body">
-                <form action="producto_guarda.php" method="post">
+                <form action="producto_guarda.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                        <label for="nombre">Numero de pedido</label>
+                        <input type="text" class="form-control" id="idproducto" name="idproducto" required>
+                    </div>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Descripcion</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre"> 
+                        <label for="descripcion">Descripcion</label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion"> 
                     </div>
-					<label for="exampleFormControlSelect1">Tipo</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+					<label for="tipo">Tipo</label>
+                    <select class="form-control" id="tipo" name="tipo">
                       <option value="">SELECCIONA</option>
-                      <option value="">Pulsera</option>
-                      <option value="">Anillo</option>
-                      <option value="">Relojes</option>
-                      <option value="">Pendientes</option>
+                      <option value="Pulsera">Pulsera</option>
+                      <option value="Anillo">Anillo</option>
+                      <option value="Relojes">Relojes</option>
+                      <option value="Pendientes">Pendientes</option>
 					</select>
-					<label for="exampleFormControlSelect1">Material</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+					<label for="material">Material</label>
+                    <select class="form-control" id="material" name="material">
                       <option value="">SELECCIONA</option>
-                      <option value="">Chapa de oro</option>
-                      <option value="">Plata</option>
-                      <option value="">Oro blanco</option>
+                      <option value="Chapa de oro">Chapa de oro</option>
+                      <option value="Plata">Plata</option>
+                      <option value="Oro blanco">Oro blanco</option>
                     </select>
-					<label for="exampleFormControlSelect1">Costo</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option value="">SELECCIONA</option>
-                      <option value="">100</option>
-                      <option value="">750</option>
-                      <option value="">460</option>
-                    </select>
-                  </form>
-                  <form class="md-form">
+                    <div class="form-group">
+                        <label for="precio">Costo</label>
+                        <input type="text" class="form-control" id="precio" name="precio" required>
+                    </div>
                     <div class="file-field">
                       <a class="btn-floating purple-gradient mt-0 float-left">
                         <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
-                        <input type="file">
+                        <input type="file" nane="archivo">
                       </a>
                       <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Inserta imagen">
                       </div>
                     </div>
-                  </form>
-                    <a class="btn btn-primary btn-sm float-right"href="producto.php"><i class="fa fa-save"></i> Guardar</a>
+                    <button type="submit" class="btn btn-info">Guardar</button>
                 </form>
             </div>
         </div>
