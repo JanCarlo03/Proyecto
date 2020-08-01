@@ -57,33 +57,35 @@ require_once './conexion.php';
             <table class="table table-bordered table-responsive-md table-striped text-center">
             <thead>
                 <tr>
-                <th class="text-center">Numero de producto </th>
-                <th class="text-center">Numero de catalogo</th>
+                <th class="text-center">Numero de pedido </th>
                 <th class="text-center">Nombre </th>
+                <th class="text-center">Descripcion</th>
                 <th class="text-center">Material</th>
                 <th class="text-center">Precio</th>
-                <th class="text-center">Sexo</th>
+                
+                
+               
                 </tr>
             </thead>
             <tbody>
             <?php
-            $sql = 'select idproducto, idcatalogo, nombre, material,precio, sexo from producto';
+            $sql = 'select idproducto, nombre,descripcion,material,precio from producto';
             foreach ($conexion->query($sql) as $registro) {
                 $registro['idproducto'] = htmlentities($registro['idproducto']);
-                $registro['idcatalogo'] = htmlentities($registro['idcatalogo']);
                 $registro['nombre'] = htmlentities($registro['nombre']);
+                $registro['descripcion'] = htmlentities($registro['descripcion']);
                 $registro['material'] = htmlentities($registro['material']);
                 $registro['precio'] = htmlentities($registro['precio']);
-                $registro['sexo'] = htmlentities($registro['sexo']);
+                
                 echo <<<fin
 
                 <tr>
                     <td>{$registro['idproducto']}</td>
-                    <td>{$registro['idcatalogo']}</td>
                     <td>{$registro['nombre']}</td>
+                    <td>{$registro['descripcion']}</td>
                     <td>{$registro['material']}</td>
                     <td>{$registro['precio']}</td>
-                    <td>{$registro['sexo']}</td>
+                   
                 </tr>
 fin;
             }
