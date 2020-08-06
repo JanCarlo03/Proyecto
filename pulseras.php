@@ -76,7 +76,7 @@ include './conexion.php';
                                 <p class="card-text"><?php echo $producto['descripcion'];?></p>
                                 <Form:post>
                                     <input type="text" name="id" id="id" values >
-                                    <input type="text" name="nombre" id="precio">
+                                    <input type="text" name="nombre" id="">
                                     <input type="text" name="precio" id="precio">
                                     <input type="text" name="cantidad" id="cantidad">
                                 <button type="submit" class="btn btn-dark">Comprar</button>
