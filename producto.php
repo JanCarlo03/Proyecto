@@ -1,4 +1,5 @@
 <?php
+require_once './checa_sesion.php';
 require_once './conexion.php';
 ?>
 <!DOCTYPE html>

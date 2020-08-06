@@ -33,7 +33,7 @@ $sentencia->execute([
     , ':segundo_apellido' => $_POST['segundo_apellido']
     , ':telefono' => $_POST['telefono']
     , ':correo' => $_POST['correo']
-    , ':contrasena' => $_POST['contrasena']
+    , ':contrasena' => password_hash ($_POST['contrasena'],  PASSWORD_BCRYPT,['cost' =>12])
     , ':perfil' => $_POST['perfil']
 ]);
 header('Location: registro.php?info=Usuario creado exitosamente: ' . $_POST['nombre']);

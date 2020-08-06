@@ -1,6 +1,4 @@
 <?php
-
-
 if (
     !isset($_POST['idproducto']) || empty($_POST['idproducto'])
     || !isset($_POST['nombre']) || empty($_POST['nombre'])
