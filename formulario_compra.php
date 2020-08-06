@@ -30,7 +30,7 @@ require_once './conexion.php';
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.html"> <i class="fa fa-user-circle"> </i>  Perfil</a>
                         <a class="dropdown-item" href="compras.html"><i class="fa fa-shopping-cart"> </i> Compras </a>
-                        <a class="dropdown-item" href="envio.php"><i class="fa fa-shipping-fast"> </i> Envio </a>
+                        <a class="dropdown-item" href="envio.html"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
                 <li class="nav-item">
@@ -47,56 +47,63 @@ require_once './conexion.php';
         <div class="card">
             <div class="card-header">
                 <a class="btn btn-light btn-sm float-right" href="producto.php"><i class="fa fa-arrow-circle-left"></i> regresar</a>
-                <i class="fa fa-gem"></i> Tu producto
+                <i class="fa fa-gem"></i> Tus Compras
             </div>
             <div class="card-body">
-                <form action="producto_guarda.php" method="post" enctype="multipart/form-data">
+                <form action="compra_guarda.php" method="post" enctype="multipart/form-data">
+                <button type="submit" class="btn btn-info">Guardar</button></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="card-body">
                 <div class="form-group">
-                        <label for="nombre">Numero de pedido</label>
-                        <input type="text" class="form-control" id="idproducto" name="idproducto" required>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="paterno">Calle</label>
+                    <input type="text" class="form-control" id="paterno" name="paterno">
+                </div>
+                <div class="form-group">
+                    <label for="materno">Cp</label>
+                    <input type="text" class="form-control" id="cp" name="cp">
+                </div>
+                <div class="form-group">
+                    <label for="materno">Colonia</label>
+                    <input type="text" class="form-control" id="colonia" name="colonia">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Numero interior</label>
+                    <input type="text" class="form-control" id="nume" name="nume">
+                </div>
+                <div class="form-group">
+                        <label for="fecha_cita">Fecha del envio</label>
+                        <input type="date" class="form-control form-control-sm" id="fecha" name="fecha" aria-describedby="fechaHelp" min="2020-06-10">
+                        <small id="fechaHelp" class="form-text text-muted">Selecciona la fecha de envio </small>
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="descripcion">Descripcion</label>
-                        <input type="text" class="form-control" id="descripcion" name="descripcion"> 
-                    </div>
-					<label for="tipo">Tipo</label>
-                    <select class="form-control" id="tipo" name="tipo">
-                      <option value="">SELECCIONA</option>
-                      <option value="Pulsera">Pulsera</option>
-                      <option value="Anillo">Anillo</option>
-                      <option value="Relojes">Relojes</option>
-                      <option value="Pendientes">Pendientes</option>
-					</select>
-					<label for="material">Material</label>
-                    <select class="form-control" id="material" name="material">
-                      <option value="">SELECCIONA</option>
-                      <option value="Chapa de oro">Chapa de oro</option>
-                      <option value="Plata">Plata</option>
-                      <option value="Oro blanco">Oro blanco</option>
-                    </select>
-                    <div class="form-group">
-                        <label for="precio">Costo</label>
-                        <input type="text" class="form-control" id="precio" name="precio" required>
-                    </div>
-                    <div class="file-field">
-                      <a class="btn-floating purple-gradient mt-0 float-left">
-                        <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
-                        <input type="file" nane="archivo">
-                      </a>
-                      <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Inserta imagen">
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-info">Guardar</button>
-                </form>
+                    <label for="telefono">Cantidad</label>
+                    <input type="text" class="form-control" id="nume" name="nume">
+                </div>
+            <div class="card-body">
+                    <form action="#" method="post">
+                        <label for="exampleFormControlSelect1">Producto</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option value="">SELECCIONA</option>
+                          <option value="">Pulsera</option>
+                          <option value="">Collar</option>
+                          <option value="">Pendientes</option>
+                          <option value="">Reloj</option>
+                          <option value="">Anillo</option>
+             </div>
             </div>
         </div>
+        </div>
     </div>
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+    <!-- Editable table -->
+</div>
+</div>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/mdb.min.js"></script>
+</head>
+<body>

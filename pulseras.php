@@ -48,7 +48,7 @@ include './conexion.php';
         <a href="#" class="badge badge-success">Ver Carrito</a>
     </div>
     <?php
-   $sentencia= $conexion ("SELECT * FROM 'items'");
+   $sentencia= $conexion ('SELECT * FROM "items"');
     $sentencia->execute();
     $listaPulseras=$sentencia->fetchAll(PDO::FETCH_ASSOC);
     print_r($listaPulseras); 

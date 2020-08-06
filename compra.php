@@ -1,5 +1,4 @@
 <?php
-
 require_once './conexion.php';
 ?>
 <!DOCTYPE html>
@@ -54,38 +53,50 @@ require_once './conexion.php';
         <div class="card-body">
         <div id="table" class="table-editable">
             <span class="table-add float-right mb-3 mr-2"><a href="e" class="text-success"></a>
-                <a class="btn btn-info float-right" href="formulario_producto.php" role="button">Añadir</a></span>
+                <a class="btn btn-info float-right" href="formulario_compra.php" role="button">Añadir</a></span>
             <table class="table table-bordered table-responsive-md table-striped text-center">
             <thead>
                 <tr>
-                <th class="text-center">Numero de pedido </th>
+                <th class="text-center">Numero de compra </th>
                 <th class="text-center">Nombre </th>
-                <th class="text-center">Descripcion</th>
-                <th class="text-center">Material</th>
-                <th class="text-center">Precio</th>
-                
+                <th class="text-center">Calle</th>
+                <th class="text-center">Cp</th>
+                <th class="text-center">Colonia</th>
+                <th class="text-center">Numero Interior</th>
+                <th class="text-center">Fecha</th>
+                <th class="text-center">Cantidad</th>
+                <th class="text-center">Producto</th>
+
                 
                
                 </tr>
             </thead>
             <tbody>
             <?php
-            $sql = 'select idproducto, nombre,descripcion,material,precio from producto';
+            $sql = 'select idcompra, nombre, calle, cp, colonia, numero, fecha, cantidad, producto from compra';
             foreach ($conexion->query($sql) as $registro) {
-                $registro['idproducto'] = htmlentities($registro['idproducto']);
+                $registro['idcompra'] = htmlentities($registro['idcompra']);
                 $registro['nombre'] = htmlentities($registro['nombre']);
-                $registro['descripcion'] = htmlentities($registro['descripcion']);
-                $registro['material'] = htmlentities($registro['material']);
-                $registro['precio'] = htmlentities($registro['precio']);
+                $registro['calle'] = htmlentities($registro['calle']);
+                $registro['cp'] = htmlentities($registro['cp']);
+                $registro['colonia'] = htmlentities($registro['colonia']);
+                $registro['numero'] = htmlentities($registro['numero']);
+                $registro['fecha'] = htmlentities($registro['fecha']);
+                $registro['cantidad'] = htmlentities($registro['cantidad']);
+                $registro['producto'] = htmlentities($registro['producto']);
                 
                 echo <<<fin
 
                 <tr>
-                    <td>{$registro['idproducto']}</td>
+                    <td>{$registro['idcompra']}</td>
                     <td>{$registro['nombre']}</td>
-                    <td>{$registro['descripcion']}</td>
-                    <td>{$registro['material']}</td>
-                    <td>{$registro['precio']}</td>
+                    <td>{$registro['calle']}</td>
+                    <td>{$registro['cp']}</td>
+                    <td>{$registro['colonia']}</td>
+                    <td>{$registro['numero']}</td>
+                    <td>{$registro['fecha']}</td>
+                    <td>{$registro['cantidad']}</td>
+                    <td>{$registro['producto']}</td>
                    
                 </tr>
 fin;
