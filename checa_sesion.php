@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['id']) || empty($_SESSION['id'])){
+if(!isset($_SESSION['idcliente']) || empty($_SESSION['idcliente'])){
     header('Location: registro.php?info=Ingresa tus credenciales');
   exit;
 }

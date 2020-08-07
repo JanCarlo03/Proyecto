@@ -10,7 +10,7 @@ if (
     exit;
 }
 require_once './conexion.php';
-$sql = 'select idcliente, nombre, perfil, contrasena from cliente where correo = :correo limit 1';
+$sql = 'select idcliente, nombre, primer_apellido, segundo_apellido, telefono, correo, perfil, contrasena from cliente where correo = :correo limit 1';
 $sentencia = $conexion->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 $sentencia->execute([':correo' => $_POST['correo']]);
 $cliente = $sentencia->fetch(PDO::FETCH_ASSOC);
@@ -23,11 +23,12 @@ if (!password_verify ($_POST['contrasena'] , $cliente['contrasena'])) {
     exit;
 }
 session_start();
-$_SESSION['id'] = $cliente['id'];
+$_SESSION['idcliente'] = $cliente['idcliente'];
 $_SESSION['nombre'] = $cliente['nombre'];
 $_SESSION['primer_apellido'] = $cliente['primer_apellido'];
 $_SESSION['segundo_apellido'] = $cliente['segundo_apellido'];
 $_SESSION['telefono'] = $cliente['telefono'];
 $_SESSION['correo'] = $cliente['correo'];
-header('Location: diamond.php');
+$_SESSION['perfil'] = $cliente['perfil'];
+header('Location: diamond_sesion.php');
 ?>

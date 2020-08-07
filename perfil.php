@@ -35,9 +35,6 @@ require_once './conexion.php';
                         <a class="dropdown-item" href="envio.html"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="registro.html">Registrarse</a>
-                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -50,37 +47,51 @@ require_once './conexion.php';
         <div class="col-md-8">
             <div class="card testimonial-card">
                 <div class="card-up rainy-ashville-gradient">
-                </div>
+            </div>
                 <div class="avatar mx-auto"><img src="img/yo.jpg" class="rounded-circle img-responsive" alt="Example photo">
-                  <div class="card-body">
-                    </div><div class="card">
-                      <div class="card-header">
-                        <h5><a class="btn btn-info float-right" href="formulario_perfil.html" role="button">Editar</a>Mi informacion </h5>
-                      </div>
-                      <div class="card-body">
-                        <from action="envio_guarda.php" method="post">
-                        <div class="form-group">
-                            <label for="nombre">Numero de envio</label>
-                            <input type="text" class="form-control" id="idenvio" name="idenvio" required> 
+                    <div class="card-body">
+                        <div class="card">
+                        <div class="card-header">
+                            <h5><a class="btn btn-info float-right" href="perfil_editar.php" role="button">Editar</a>Mi informacion </h5>
                         </div>
-                        <div class="form-group">
-                            <label for="paterno">Numero de compra</label>
-                            <input type="text" class="form-control" id="idventa" name="idventa" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fecha_cita">Fecha del envio</label>
-                            <input type="date" class="form-control form-control-sm" id="fecha" name="fecha" aria-describedby="fechaHelp" min="2020-06-10">
-                            <small id="fechaHelp" class="form-text text-muted">Selecciona la fecha de envio </small>
-                        </div>
-                        <div class="form-group">
-                            <label for="paterno">Direccion</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion">
+                        <div class="card-body">
+                            <form action="envio_guarda.php" method="post">
+                            <?php
+                                $sql = 'select idcliente, nombre, primer_apellido, segundo_apellido, telefono, correo from cliente where idcliente = :idcliente';
+                                $sentencia = $conexion->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                                $sentencia->execute([':idcliente' => $_SESSION['idcliente']]);
+                                $registro = $sentencia->fetch(PDO::FETCH_ASSOC);
+                                    $registro['idcliente'] = htmlentities($registro['idcliente']);
+                                    $registro['nombre'] = htmlentities($registro['nombre']);
+                                    $registro['primer_apellido'] = htmlentities($registro['primer_apellido']);
+                                    $registro['telefono'] = htmlentities($registro['telefono']);
+                                    $registro['correo'] = htmlentities($registro['correo']);
+                            ?>
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="<?php echo  $registro['nombre'];?>" required> 
+                            </div>
+                            <div class="form-group">
+                                <label for="primer_apellido">Primer apellido</label>
+                                <input type="text" class="form-control" id="primer_apellido" name="primer_apellido" placeholder="<?php echo $registro['primer_apellido'];?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="materno">Segundo apellido</label>
+                                <input type="text" class="form-control" id="segundo_apellido" name="segundo_apellido" placeholder="<?php echo $registro['segundo_apellido'];?>" >
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Telefono </label>
+                                <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="<?php echo $registro['telefono'];?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">Correo</label>
+                                <input type="email" class="form-control" id="correo" name="correo" placeholder="<?php echo $registro['correo'];?>" required>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
