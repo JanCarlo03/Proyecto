@@ -31,7 +31,7 @@ require_once './conexion.php';
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php"> <i class="fa fa-user-circle"> </i>  Perfil</a>
-                        <a class="dropdown-item" href="compras.php"><i class="fa fa-shopping-cart"> </i> Compras </a>
+                        <a class="dropdown-item" href="mostrarcarrito.php"><i class="fa fa-shopping-cart"> </i> Compras </a>
                         <a class="dropdown-item" href="envio.php"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.php"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
