@@ -6,7 +6,7 @@ if(isset($_POST['btnAccion'])){
   switch($_POST['btnAccion']){
     case 'Agregar':
 
-    if(empty(openssl_decrypt($_POST['id_objeto'],COD,KEY))){
+    if(is_numeric(openssl_decrypt($_POST['id_objeto'],COD,KEY))){
 
         $ID=openssl_decrypt($_POST['id_objeto'],COD,KEY);
         $mensaje.='Id correcto   ,'.$ID;
@@ -19,7 +19,7 @@ if(isset($_POST['btnAccion'])){
     }else{ $mensaje.='Upps.. incorrecto Nombre   ,'; break;}
 
 
-    if(empty(openssl_decrypt($_POST['cantidad'],COD,KEY))){
+    if(is_numeric(openssl_decrypt($_POST['cantidad'],COD,KEY))){
         $CANTIDAD=openssl_decrypt($_POST['cantidad'],COD,KEY);
         $mensaje.='Ok cantidad   ,'.$CANTIDAD ;
     }else{ $mensaje.=',Upps.. incorrecta Cantidad    '; break;}
@@ -30,7 +30,7 @@ if(isset($_POST['btnAccion'])){
        $mensaje.='Ok precio   ,'.$PRECIO ;
     }else{ $mensaje.='Upps.. incorrecto Precio  '; break;}
     
-if(!isset($_SESSION['CARRITO'])){
+     if(!isset($_SESSION['CARRITO'])){
     $producto=array(
      'ID'=>$ID,
      'NOMBRE'=>$NOMBRE,
@@ -39,8 +39,8 @@ if(!isset($_SESSION['CARRITO'])){
     );
     $_SESSION['CARRITO'][0]=$producto;
 
-}else{
-    $numeroProductos=count($_SESSION['CARRITO']);
+    }else{
+     $numeroProductos=count($_SESSION['CARRITO']);
     $producto=array(
         'ID'=>$ID,
         'NOMBRE'=>$NOMBRE,
@@ -48,28 +48,26 @@ if(!isset($_SESSION['CARRITO'])){
         'PRECIO'=>$PRECIO
        );
        $_SESSION['CARRITO'][$numeroProductos]=$producto;
-}
-    $mensaje=print_r($_SESSION,true);    
+     }
+      //$mensaje=print_r($_SESSION,true);
+      $mensaje="Producto Agregado al carrito";     
 break;
-case "Eliminar":
-    if(empty(openssl_decrypt($_POST['id_objeto'],COD,KEY))){
-
+  case"Eliminar":
+    if(is_numeric( $_POST['id_objeto'])){
         $ID=openssl_decrypt($_POST['id_objeto'],COD,KEY);
-        foreach($_SESSION['CARRITO'] as $indice=>$producto){
-      if($producto['ID']==$ID){
-          unset($_SESSION['CARRITO'][$indice]);
-          echo "<script>alert('Elemto eliminado...');</script>";
+        foreach ($_SESSION['CARRITO'] as $indice => $producto); {
+            if($producto ['id_objeto']==$ID){
+                unset($_SESSION['CARRITO'][$indice]);
+               echo "<script>alert('Elemento Borrado'); </script>";
 
 
-      }
-
+            }
+            
         }
-
-    }else{
-        $mensaje.='Upps.. incorrecto ID   ,'.$ID;
     }
-break;
-}
+  break;
+
+  }       
 
 }
 

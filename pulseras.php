@@ -48,11 +48,13 @@ include './carrito.php';
             </form>
         </div>
     </nav>
+    <?php if($mensaje!="") {?>
     <div class="alert alert-success">
         <?php
         echo $mensaje;
         ?>
-        <a href="#" class="badge badge-success">Ver Carrito</a>
+        <a href="mostrarcarrito.php" class="badge badge-success">Ver Carrito</a>
+      <?php }?>
     </div>
     <?php
    $sentencia= $conexion->prepare('select * from objetos');
@@ -83,10 +85,10 @@ include './carrito.php';
                                 <p class="card-text"><?php echo $producto['descripcion'];?></p>
                                 
                                 <Form action='' method="post">
-                                    <input type="hidden" name="id_objeto" id="id_objeto" values=<?php echo  openssl_encrypt($producto['id_objeto'],COD,KEY);?>>
+                                    <input type="hidden" name="id_objeto" id="id_objeto" value=<?php echo  openssl_encrypt($producto['id_objeto'],COD,KEY);?>>
                                     <input type="hidden" name="nombre" id="nombre" value=<?php echo openssl_encrypt($producto['nombre'],COD,KEY);?>>
                                     <input type="hidden" name="precio" id="precio" value=<?php echo openssl_encrypt($producto['precio'],COD,KEY);?>>
-                                    <input type="hidden" name="cantidad" id="cantidad" values="<?php echo  openssl_encrypt(1,COD,KEY);?>">
+                                    <input type="hidden" name="cantidad" id="cantidad" value="<?php echo  openssl_encrypt(1,COD,KEY);?>">
                                     <button type="submit" name='btnAccion' value='Agregar'class="btn btn-dark">Comprar</button>
                                 </Form>
                                 

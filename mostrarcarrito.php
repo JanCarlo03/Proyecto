@@ -9,7 +9,7 @@ include './carrito.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulseras</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mdb.min.css">
+    
     <link rel="stylesheet" href="css/all.min.css">
 </head>
 <body>
@@ -69,15 +69,12 @@ include './carrito.php';
              <td width="20%"calss='text-center'><?php echo $producto['PRECIO']?></td>
              <td width="20%"calss='text-center'><?php echo number_format($producto['PRECIO']*$producto['CANTIDAD'],2)?></td>
              <td width="5%">
-             <form action='' method='post'>
-             <input type="hidden" name="id_objeto" id="id_objeto" values="<?php echo  openssl_encrypt($producto['id_objeto'],COD,KEY);?>">
-            <b-btn class='btn btn-danger' 
-             type='submmit'
-              name='btnAccion' 
-              value='Eliminar'>Eliminar</b-btn>
-            
-         </form>
-            </td>
+             <form action="" method="post">
+             <input type="hidden" name="id_objeto" id="id_objeto" value="<?php echo  openssl_encrypt($producto['id_objeto'],COD,KEY);?>">
+             <button class='btn btn-danger' type='submit' name='btnAccion' value="Eliminar">Eliminar</button >
+             </input>
+             </form>            
+               </td>
              <?php $total= $total+ ($producto['PRECIO']*$producto['CANTIDAD']); ?>
          <?php } ?>
             </tr>
