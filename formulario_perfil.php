@@ -1,5 +1,5 @@
 <?php
-require_once './checa_sesion .php';
+require_once './checa_sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en-MX">
@@ -71,7 +71,7 @@ require_once './checa_sesion .php';
                         <input type="text" class="form-control" id="materno" name="materno">
                     </div>
                     <div class="form-group">
-                        <label for="rfc">RFC</label>
+                        <label for="rfc"></label>
                         <input type="text" class="form-control" id="rfc" name="rfc">
                     </div>
                     <div class="form-group">

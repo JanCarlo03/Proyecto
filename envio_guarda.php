@@ -2,10 +2,12 @@
 // print_r($_POST);
 // exit;
 if (
-    !isset($_POST['idenvio']) || empty($_POST['idenvio'])
-    || !isset($_POST['idventa']) || empty($_POST['idventa'])
-    || !isset($_POST['fecha']) || empty($_POST['fecha'])
-    || !isset($_POST['direccion']) || empty($_POST['direccion'])
+    !isset($_POST['idventa']) || empty($_POST['idventa'])
+    || !isset($_POST['codigo_postal']) || empty($_POST['fecha'])
+    || !isset($_POST['calle']) || empty($_POST['calle'])
+    || !isset($_POST['codigo_postal']) || empty($_POST['codigo_postal'])
+    || !isset($_POST['estado_id']) || empty($_POST['estado_id'])
+    || !isset($_POST['municipio_id']) || empty($_POST['municipio_id'])
     ) {
     header('Location: envio_formu.php');
     exit;
@@ -13,17 +15,21 @@ if (
 require_once './conexion.php';
 $sql = <<<fin
 insert into envio set
-idenvio = :idenvio
-, idventa = :idventa
+ idventa = :idventa
 , fecha = :fecha
-, direccion = :direccion
+, calle = :calle
+, codigo_postal = :codigo_postal
+, estado_id = :estado_id
+, municipio_id = :municipio_id
 fin;
 $sentencia = $conexion->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 $sentencia->execute([
-    ':idenvio' => $_POST['idenvio']
-    , ':idventa' => $_POST['idventa']
+     ':idventa' => $_POST['idventa']
     , ':fecha' => $_POST['fecha']
-    , ':direccion' => $_POST['direccion']
+    , ':calle' => $_POST['calle']
+    , ':codigo_postal' => $_POST['codigo_postal']
+    , ':estado_id' => $_POST['estado_id']
+    , ':municipio_id' => $_POST['municipio_id']
 ]);
-header('Location: envio_formu.php?info=envio creado exitosamente: ' . $_POST['idenvio']);
+header('Location: envio.php?info=envio creado exitosamente: ' . $_POST['idventa']);
 ?>

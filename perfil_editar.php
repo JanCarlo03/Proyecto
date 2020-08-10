@@ -110,16 +110,6 @@ if (false === $cliente) {
                                         <label for="contrasena_confirma">Contraseña (confirma)</label>
                                         <input type="password" class="form-control form-control-sm" id="confirma_contrasena" name="confirma_contrasena" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="perfil1">Perfil</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="perfil" id="perfil1" value="Administrador" <?php echo 'Administrador' == $cliente['perfil'] ? 'checked' : '';?>>
-                                            <label class="form-check-label" for="perfil1">Administrador</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="perfil" id="perfil2" value="Cliente" <?php echo 'Cliente' == $cliente['perfil'] ? 'checked' : '';?>>
-                                            <label class="form-check-label" for="perfil2">Cliente</label>
-                                        </div>
                                     <button class="btn btn-info my-4 btn-block" type="submit">Guardar</button>
                                 </form>
                             </div>

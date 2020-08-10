@@ -36,9 +36,6 @@ require_once './conexion.php';
                         <a class="dropdown-item" href="envio.html"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Registrarse</a>
-                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -46,44 +43,30 @@ require_once './conexion.php';
             </form>
         </div>
     </nav>
-    <!-- Horizontal Steppers -->
     <div class="row">
         <div class="col-md-12">
-    
-        <!-- Stepers Wrapper -->
         <ul class="stepper stepper-horizontal">
-    
-            <!-- First Step -->
             <li class="warning">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-dolly-flatbed"></i></span>
-                <span class="label">En preparación </span>
-            </a>
-            </li>
-    
-            <!-- Second Step -->
+                <a href="#!">
+                    <span class="circle"><i class="fas fa-dolly-flatbed"></i></span>
+                    <span class="label">En preparación </span>
+                </a>
+            </li>    
             <li class="active">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-truck"></i></span>
-                <span class="label">En camino</span>
-            </a>
+                <a href="#!">
+                    <span class="circle"><i class="fas fa-truck"></i></span>
+                    <span class="label">En camino</span>
+                </a>
             </li>
-    
-            <!-- Third Step -->
             <li class="completed">
-            <a href="#!">
-                <span class="circle"><i class="fas fa-check"></i></span>
-                <span class="label">Entregado</span>
-            </a>
+                <a href="#!">
+                    <span class="circle"><i class="fas fa-check"></i></span>
+                    <span class="label">Entregado</span>
+                </a>
             </li>
-    
         </ul>
-        <!-- /.Stepers Wrapper -->
-    
-        </div>
     </div>
-    <!-- /.Horizontal Steppers -->
-    <!-- Editable table -->
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
     <div class="card">
@@ -98,24 +81,29 @@ require_once './conexion.php';
                 <th class="text-center">Numero de envio </th>
                 <th class="text-center">Numero de compra</th>
                 <th class="text-center">Fecha </th>
-                <th class="text-center">Direccion</th>
+                <th class="text-center">Dirección </th>
                 </tr>
             </thead>
             <tbody>
             <?php
-            $sql = 'select idenvio, idventa, fecha, direccion from envio';
+            $sql = 'select idenvio, idventa, fecha, calle, codigo_postal, estado_id, municipio_id from envio';
             foreach ($conexion->query($sql) as $registro) {
                 $registro['idenvio'] = htmlentities($registro['idenvio']);
                 $registro['idventa'] = htmlentities($registro['idventa']);
                 $registro['fecha'] = htmlentities($registro['fecha']);
-                $registro['direccion'] = htmlentities($registro['direccion']);
+                $registro['estado_id'] = htmlentities($registro['estado_id']);
                 echo <<<fin
 
                 <tr>
                     <td>{$registro['idenvio']}</td>
                     <td>{$registro['idventa']}</td>
                     <td>{$registro['fecha']}</td>
-                    <td>{$registro['direccion']}</td>
+                    <td>
+                    {$registro['calle']},
+                    {$registro['codigo_postal']},
+                    {$registro['municipio_id']},
+                    {$registro['estado_id']}
+                    </td>
                 </tr>
 fin;
             }
@@ -125,7 +113,6 @@ fin;
         </div>
         </div>
     </div>
-    <!-- Editable table -->
 </div>
 </div>
     <script src="js/jquery-3.5.1.min.js"></script>

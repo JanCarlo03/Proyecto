@@ -7,7 +7,6 @@ if (
     || !isset($_POST['correo']) || empty($_POST['correo']) || !filter_var($_POST['correo'], FILTER_VALIDATE_EMAIL)
     || !isset($_POST['contrasena']) || empty($_POST['contrasena']) || strlen($_POST['contrasena']) < 8
     || $_POST['contrasena'] != $_POST['confirma_contrasena']
-    || !isset($_POST['perfil']) || empty($_POST['perfil']) || !in_array($_POST['perfil'], ['Administrador', 'Cliente'])
     ) {
     header('Location: perfil_editar.php');
     exit;
@@ -21,7 +20,6 @@ nombre = :nombre
 , telefono = :telefono
 , correo = :correo
 , contrasena = :contrasena
-, perfil = :perfil
 where
     idcliente = :idcliente
 fin;
@@ -33,7 +31,7 @@ $sentencia->execute([
     , ':telefono' => $_POST['telefono']
     , ':correo' => $_POST['correo']
     , ':contrasena' => password_hash ($_POST['contrasena'],  PASSWORD_BCRYPT,['cost' =>12])
-    , ':perfil' => $_POST['perfil']
+    , ':idcliente' => $_SESSION['idcliente']
 ]);
 header('Location: perfil.php?info=Perfil actualizado exitosamente: ' . $_POST['nombre']);
 ?>

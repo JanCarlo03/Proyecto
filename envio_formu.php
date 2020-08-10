@@ -36,9 +36,6 @@ require_once './conexion.php';
                         <a class="dropdown-item" href="envio.php"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Registrarse</a>
-                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -59,10 +56,6 @@ require_once './conexion.php';
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Numero de envio</label>
-                        <input type="text" class="form-control" id="idenvio" name="idenvio" required> 
-                    </div>
-                    <div class="form-group">
                         <label for="paterno">Numero de compra</label>
                         <input type="text" class="form-control" id="idventa" name="idventa" required>
                     </div>
@@ -72,18 +65,48 @@ require_once './conexion.php';
                         <small id="fechaHelp" class="form-text text-muted">Selecciona la fecha de envio </small>
                     </div>
                     <div class="form-group">
-                        <label for="paterno">Direccion</label>
-                        <input type="text" class="form-control" id="direccion" name="direccion">
+                        <label for="paterno">Calle</label>
+                        <input type="text" class="form-control" id="calle" name="calle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="paterno">Codigo postal</label>
+                        <input type="text" class="form-control" id="codigo_postal" name="codigo_postal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado_id">Estado</label>
+                        <select class="form-control form-control-sm" id="estado_id" name="estado_id">
+                        <option>Selecciona un estado</option>
+                        <?php
+                            $sql = 'select id, estado from estados order by estado asc';
+                            foreach ($conexion->query($sql) as $registro) {
+                                echo <<<fin
+                            <option value="{$registro['id']}" >{$registro['estado']}</option>
+                            fin;
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="municipio_id">Municipio</label>
+                        <select class="form-control form-control-sm" id="municipio_id" name="municipio_id">
+                        <option value="">Selecciona un municipio</option>
+                        </select>
                     </div>
                 </form>
             </div>
         </div>
-        </div>
     </div>
-    <!-- Editable table -->
+    </div>
 </div>
 </div>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(function (e) {
+        $('#estado_id').change(function (e){
+            $('#municipio_id').load('municipios.php?estado_id=' + $(this).val());
+        });
+    })
+    </script>
 </body>
 </html>
