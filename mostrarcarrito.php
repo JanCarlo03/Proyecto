@@ -57,7 +57,8 @@ include './carrito.php';
             <tr>
         <th width="40%">Descripcion</th>
              <th width="15%" calss='text-center'>Cantidad</th>
-             <th width="20%"calss='text-center'>Precio</th>
+             <th width="15%"calss='text-center'>Precio</th>
+             <th width="10%"calss='text-center'>id</th>
              <th width="20%"calss='text-center'>Total</th>
              <th width="5%">--</th>
         </tr> 
@@ -70,13 +71,19 @@ include './carrito.php';
              <td width="20%"calss='text-center'><?php echo number_format($producto['PRECIO']*$producto['CANTIDAD'],2)?></td>
              <td width="5%">
              <form action="" method="post">
-             <input type="hidden" name="id_objeto" id="id_objeto" value="<?php echo  openssl_encrypt($producto['id_objeto'],COD,KEY);?>">
-             <button class='btn btn-danger' type='submit' name='btnAccion' value="Eliminar">Eliminar</button >
+             <input type="hidden" 
+             name="id_objeto" 
+             id="id_objeto"
+              value="<?php echo  openssl_encrypt($producto['id_objeto'],COD,KEY);?>">
+             <button type="submit"
+              name='btnAccion' 
+              value='Eliminar'
+              class="btn btn-dark">Borrar</button>
              </input>
              </form>            
                </td>
              <?php $total= $total+ ($producto['PRECIO']*$producto['CANTIDAD']); ?>
-         <?php } ?>
+            <?php } ?>
             </tr>
         <tr>
             <td colspan='3' aling="right"><h3>TOTAL</h3></td>
