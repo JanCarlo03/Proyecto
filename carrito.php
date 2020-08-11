@@ -50,7 +50,8 @@ if(isset($_POST['btnAccion'])){
        );
        $_SESSION['CARRITO'][$numeroProductos]=$producto;
      }
-      //$mensaje=print_r($_SESSION,true);   
+      //$mensaje=print_r($_SESSION,true); 
+      $mensaje="Producto agregado al carrito";
          break;
      case 'Eliminar':
         //print_r($_POST);

@@ -23,7 +23,7 @@ include './carrito.php';
                     <a class="nav-link" href="diamond_sesion.php">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pulseras.php">Ofertas</a>
+                    <a class="nav-link" href="pulseras.php">Catalogo</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,9 +37,6 @@ include './carrito.php';
                         ?>) </a>
                         <a class="dropdown-item" href="envio.html"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="formulario_perfil.html">Registrarse</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

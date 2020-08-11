@@ -1,4 +1,5 @@
-<?php
+<?php 
+require_once './checa_sesion.php';
 include './conexion.php';
 include './config.php';
 include './carrito.php';
@@ -21,7 +22,7 @@ include './carrito.php';
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                    <a class="nav-link" href="diamond_sesion.php">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="diamond.php">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pulseras.php">Ofertas</a>
@@ -38,9 +39,6 @@ include './carrito.php';
                         <a class="dropdown-item" href="envio.html"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="formulario_perfil.html">Registrarse</a>
-                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -49,19 +47,24 @@ include './carrito.php';
         </div>
     </nav>
     <br>
-    <h3>Lista de productos </h3>
     <?php  if(!empty($_SESSION['CARRITO'])){ ?>
      
-    <table calss="table table-light table-bordered">
-        <tbody>
-            <tr>
-        <th width="40%">Descripcion</th>
-             <th width="15%" calss='text-center'>Cantidad</th>
-             <th width="15%"calss='text-center'>Precio</th>
-             <th width="10%"calss='text-center'>id</th>
-             <th width="20%"calss='text-center'>Total</th>
-             <th width="5%">--</th>
-        </tr> 
+        <div class="row justify-content-center">
+        <div class="col-md-8">
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Tus compras  </h3>
+        <div class="card-body">
+        <div id="table" class="table-editable">
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+                <tr>
+                <th class="text-center">Joya </th>
+                <th class="text-center">Cantidad</th>
+                <th class="text-center">Precio</th>
+                <th class="text-center">Total </th>
+                <th class="text-center">Eliminar </th>
+                </tr>
+            </thead>
         <?php $total=0; ?>
          <?php foreach($_SESSION['CARRITO'] as $indice=>$producto) {?>
          <tr>
