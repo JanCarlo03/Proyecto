@@ -1,4 +1,5 @@
 <?php
+require_once './checa_sesion.php';
 if (
     !isset($_POST['nombre']) || empty($_POST['nombre'])
     || !isset($_POST['primer_apellido']) || empty($_POST['primer_apellido'])

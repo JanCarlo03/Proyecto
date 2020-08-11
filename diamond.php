@@ -20,10 +20,10 @@ require_once './conexion.php';
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="diamond.html">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="diamond.php">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="producto.html">Ofertas</a>
+                    <a class="nav-link" href="pulseras.php">Ofertas</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,7 +33,6 @@ require_once './conexion.php';
                         <a class="dropdown-item" href="perfil.php"> <i class="fa fa-user-circle"> </i>  Perfil</a>
                         <a class="dropdown-item" href="mostrarcarrito.php"><i class="fa fa-shopping-cart"> </i> Compras </a>
                         <a class="dropdown-item" href="envio.php"><i class="fa fa-shipping-fast"> </i> Envio </a>
-                        <a class="dropdown-item" href="catalogo.php"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="inicio_sesion.php">Iniciar sesión</a>
