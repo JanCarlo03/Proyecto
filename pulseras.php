@@ -1,5 +1,7 @@
 <?php
 include './conexion.php';
+include './config.php';
+include './carrito.php';
 ?>
 <html lang="es-MX">
 <head>
@@ -29,7 +31,10 @@ include './conexion.php';
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.html"> <i class="fa fa-user-circle"> </i>  Perfil</a>
-                        <a class="dropdown-item" href="compras.html"><i class="fa fa-shopping-cart"> </i> Compras </a>
+                        <a class="dropdown-item" href="mostrarcarrito.php"><i class="fa fa-shopping-cart"> </i> Compras (<?php 
+                        echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']);
+                        
+                        ?>) </a>
                         <a class="dropdown-item" href="envio.html"><i class="fa fa-shipping-fast"> </i> Envio </a>
                         <a class="dropdown-item" href="catalogo.html"><i class="fa fa-images"> </i> Catalogo </a>
                 </li>
@@ -43,15 +48,19 @@ include './conexion.php';
             </form>
         </div>
     </nav>
+    <?php if($mensaje!="") {?>
     <div class="alert alert-success">
-        Pantalla de Mensaje...
-        <a href="#" class="badge badge-success">Ver Carrito</a>
+        <?php
+        echo $mensaje;
+        ?>
+        <a href="mostrarcarrito.php" class="badge badge-success">Ver Carrito</a>
+      <?php }?>
     </div>
     <?php
-   $sentencia= $conexion ('SELECT * FROM "items"');
+   $sentencia= $conexion->prepare('select * from objetos');
     $sentencia->execute();
     $listaPulseras=$sentencia->fetchAll(PDO::FETCH_ASSOC);
-    print_r($listaPulseras); 
+    //print_r($listaPulseras); 
     
      ?>
     <div class="container mt-3">
@@ -68,44 +77,31 @@ include './conexion.php';
             <div class="container ">
                 <div class="row">
                     <div class="col-md">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 18rem;" >
                             <img src="<?php echo $producto['imagen'];?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p class="card-text"><?php echo $producto['nombre'];?></p>
                                 <p class="card-text">$<?php echo $producto['precio'];?></p>
                                 <p class="card-text"><?php echo $producto['descripcion'];?></p>
-                                <Form:post>
-                                    <input type="text" name="id" id="id" values >
-                                    <input type="text" name="nombre" id="">
-                                    <input type="text" name="precio" id="precio">
-                                    <input type="text" name="cantidad" id="cantidad">
-                                <button type="submit" class="btn btn-dark">Comprar</button>
-                                </Form:post>
+                                
+                                <Form action='' method="post">
+                                    <input type="hidden" name="id_objeto" id="id_objeto" value=<?php echo  openssl_encrypt($producto['id_objeto'],COD,KEY);?>>
+                                    <input type="hidden" name="nombre" id="nombre" value=<?php echo openssl_encrypt($producto['nombre'],COD,KEY);?>>
+                                    <input type="hidden" name="precio" id="precio" value=<?php echo openssl_encrypt($producto['precio'],COD,KEY);?>>
+                                    <input type="hidden" name="cantidad" id="cantidad" value="<?php echo  openssl_encrypt(1,COD,KEY);?>">
+                                    <button type="submit" name='btnAccion' value='Agregar'class="btn btn-dark">Comprar</button>
+                                </Form>
+                                
+                                
                             </div>
                         </div>
                     </div>
                     <?php } ?>
-                    <div class="col-md">
-                        <div class="card" style="width: 18rem;">
-                            <img src="http://127.0.0.1/Proyecto/img_productos/p2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Hakimi: Linda pulsera de plata para dama con detalles en oro blanco de 8 kilates.</p>
-                                <button type="submit" class="btn btn-dark">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="card" style="width: 18rem;">
-                            <img src="img_productos/p3.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Erling: Linda pulsera con piedras exoticas talladas y pulidas con liston de oro.</p>
-                                <button type="submit" class="btn btn-dark">Comprar</button>
-                            </div>
-                        </div>
                     </div>
             </div>
         </div>
-    </div>  
+    <script>
+    </script>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
